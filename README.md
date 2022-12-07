@@ -37,8 +37,8 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://github.com/angeldhawnn/news-homepage-main.git)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Solution URL: (https://github.com/angeldhawnn/news-homepage-main.git)
+- Live Site URL: (https://angeldhawnn.github.io/news-homepage-main/)
 
 
 ### Built with
