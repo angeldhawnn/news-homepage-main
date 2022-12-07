@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+  
+
+  
+  <title>Frontend Mentor | News homepage</title>
+
+  <style>
+ /* @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&display=swap');*/
+  
+    *{
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+      font-family: 'Inter', sans-serif;
+      font-size: 16px;
+      text-size-adjust: none;
+    }
+   body{
+     position: relative;
+   }
+    .main-container{
+      display: grid;
+      grid-template-columns: 1fr;
+      width: 95%;
+     margin-inline: auto;
+    grid-auto-rows: minmax(50px, auto);
+     padding: 1em 0;;
+     grid-gap: 10px;
+    }
+  
+    .active-container:before{
+      content: "";
+      background: rgb(0,0,0, .5);
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      
+    }
+    header{
+       width: 95%;
+       margin-inline: auto;
+      padding: 1em 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    header ul{
+      text-decoration: none;
+      list-style: none;
+      margin-top: 3rem;
+    }
+    header ul li{
+      padding: .5em;
+    }
+    header ul li:hover{
+      color:hsl(5, 85%, 63%);
+    }
+    .main-container .items{
+      padding: 0em 0;
+   
+   
+    }
+    .main-container .items:nth-child(1) img{
+      width: 100%;
+    }
+    .main-container .items:nth-child(1) .desktop-view{
+      display: none;
+    }
+    header .navigation{
+      background: hsl(36, 100%, 99%);
+      position: fixed;
+      right: -60%;
+      top: 0;
+      padding: 1em;
+      height: 100vh;
+      width:60%;
+      transition: .5s;
+      z-index: 1;
+    }
+    header .active{
+      transform: translate(-100%);
+      transition: .5s;
+    }
+    header .navigation img{
+      position: absolute;
+      right: 1em;
+    }
+    .main-container .items .blog-header h1{
+      
+      font-weight: 900;
+      font-size: 50px;
+    }
+    .main-container .items .blog-content p{
+      color:hsl(236, 13%, 42%);
+      font-size: 1.1rem;
+     
+    }
+    .main-container .items .blog-content .btn{
+      color: hsl(36, 100%, 99%);
+      padding: .8rem 1rem;
+      background: hsl(5, 85%, 63%);
+      text-transform: uppercase;
+      letter-spacing: 5px;
+      font-weight: bold;
+      outline: none;
+      border: none;
+      margin-top: 1rem;
+      font-size: 11px;
+    }
+    .main-container .items .blog-content .btn:hover{
+      background:  hsl(240, 100%, 5%);
+    }
+    .main-container .items:nth-child(4){
+      background: hsl(240, 100%, 5%);
+      padding: 1em;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .main-container .items:nth-child(4) article{
+      padding: 1em 0;
+      border-bottom: 1px solid hsl(233, 8%, 79%);
+    }
+    .main-container .items:nth-child(4) article:nth-child(4){
+      border-bottom: none;
+    }
+    .main-container .items:nth-child(4) h1{
+      color: hsl(35, 77%, 62%);
+      font-size: 30px;
+     
+    }
+    .main-container .items:nth-child(4) article .subtitle{
+      color: hsl(36, 100%, 99%);
+    font-size: 21px;
+      font-weight: 600;
+    }
+    .main-container .items:nth-child(4) article .subtitle:hover{
+      color: hsl(35, 77%, 62%);
+    }
+    .main-container .items:nth-child(4) article p{
+      color: hsl(233, 8%, 79%);
+      padding: .5em 0;
+     font-size: 19px;
+      
+    }
+ 
+    .main-container .product-container{
+      display: flex;
+      
+      padding: 0;
+       justify-content: space-between;
+     
+      
+    }
+    .main-container .product-container .img-container{
+     max-width: 100px;
+    
+
+    }
+    .main-container .product-container img{
+      
+      width: 100%;
+   
+    }
+    .main-container .product-container .products{
+      
+    
+      display: flex;
+      
+   
+      flex-direction: column;
+      justify-content: space-between;
+      max-width: 60%;
+    }
+    .main-container .product-container .products > * {
+     
+      
+    }
+    .main-container .product-container .products .numbers{
+   
+      font-weight: 600;
+      color:hsl(236, 13%, 42%);
+      font-size: 30px;
+    }
+    .main-container .product-container .products .product-title{
+     color:hsl(240, 100%, 5%);
+     font-size: 1.2rem;
+     font-weight: 900;
+  
+    }
+    
+    .main-container .product-container .products .product-title:hover{
+      color: hsl(5, 85%, 63%);
+    }
+    .main-container .product-container .products p{
+      color:hsl(236, 13%, 42%);
+      font-size: 1.1rem;
+      flex-shrink: 0;
+    }
+    .main-container .product-container .img-container img{
+  height: 100%;
+    }
+    
+    @media only screen and (min-width:400px){
+      .main-container{
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-auto-rows: minmax(10px, auto);
+        
+     }
+     .main-container .items:nth-child(1){
+       grid-column: 1/3;
+     }
+      .main-container .items:nth-child(1) .desktop-view{
+        display: block;
+      }
+     .main-container .items:nth-child(4){
+       grid-column: 3/4;
+       grid-row: 1/3;
+     }
+      header .navigation{
+        right: unset;
+        transform: unset;
+        position: unset;
+        height: unset;
+        width: unset;
+        padding: unset;
+       top:unset;
+      }
+      header ul{
+        margin:unset;
+      }
+  
+      header .navigation ul{
+        display: flex;
+        align-items: center;
+        gap: 1em;
+      }
+      
+      header .open-logo{
+        display: none;
+      }
+      
+     header .navigation img{
+        display: none;
+      }
+     
+    .main-container .items .mobile-view{
+      display: none;
+    
+    }
+     .main-container .items .blog-header h1{
+      
+     
+      font-size: 60px;
+    }
+    .main-container .items:nth-child(4) article p{
+      
+     font-size: 15px;
+      
+    }
+    .main-container .product-container .products .product-title{
+     font-size: 17px;
+    } 
+    .main-container .product-container .products p{
+      font-size: 14px;
+    
+    }
+    }
+    
+
+  
+  
+    
+  </style>
+</head>
+<body>
+  <header>
+      <div class="logo">
+        <img src="./assets/images/logo.png" alt="logo">
+      </div>
+      <div class="open-logo" onclick="openNav()">
+        <img src="./assets/images/icon-menu.png" alt="menu">
+      </div>
+      <nav class="navigation">
+        <img  onclick="openNav()" src="./assets/images/icon-menu-close.png" alt="close">
+      <ul class="menu">
+        <li>Home</li>
+        <li>New</li>
+        <li>Popular </li>
+        <li>Trending</li>
+        <li>Categories</li>
+      </ul>
+      </nav>
+    </header>
+  <main class="main-container">
+    
+    
+    <section class="items">
+      <img class="mobile-view" src="./assets/images/image-web-3-mobile.jpg" alt="mobile image">
+      <img class="desktop-view" src="./assets/images/image-web-3-desktop.jpg" alt="desktop image">
+    </section>
+    <section class="items">
+      <div class="blog-header">
+        <h1>The Bright Future of Web 3.0?</h1>
+      </div>
+      </section>
+      <section class="items">
+      <div class="blog-content">
+        <p>We dive into the next evolution of the web that claims to put the power of the platforms back into the hands of the people. But is it really fulfilling its promise?</p> 
+        <button class="btn">read more</button>
+      </div>
+    </section>
+    <section class="items">
+      <h1 class="new">New</h1>
+      <article>
+        <div class="subtitle">
+          Hydrogen vs Electric Cars
+        </div>
+        <p>Will hydrogen-fueled cars ever catch up to EVs?</p>
+      </article>
+      <article>
+        <div class="subtitle">
+          The Downsides of AI Artistry
+        </div>
+        <p>What are the possible adverse effects of on-demand AI image generation?</p>
+      </article>
+      <article>
+        <div class="subtitle">
+          Is VC Funding Drying Up?
+        </div>
+        <p>Private funding by VC firms is down 50% YOY. We take a look at what that means.</p>
+      </article>
+    </section>
+       <section class="items product-container">
+      <div class="img-container"><img src="./assets/images/image-retro-pcs.jpg"></div>
+      <div class="products">
+        <div class="numbers">01</div>
+        <div class="product-title">Reviving Retro PCs</div>
+        <p>What happen when olc pcs are given modern upgrades?</p>
+      </div>
+      </section>
+      <section class="items product-container">
+     <div class="img-container"><img src="./assets/images/image-top-laptops.jpg"></div>
+      <div class="products">
+        <div class="numbers">02</div>
+        <div class="product-title">Top 10 Laptops of 2022</div>
+        <p>Our best pick for various needs and budgets.</p>
+      </div>
+      </section>
+      
+      <section class="items product-container">
+    <div class="img-container"><img src="./assets/images/image-gaming-growth.jpg"></div>
+      <div class="products">
+        <div class="numbers">03</div>
+        <div class="product-title">The Growth of Gaming</div>
+        <p>How the pandemic has sparked fresh opportunities.</p>
+      </div>
+    </section>
+  </main>
+  <script>
+    function openNav(){
+      let nav = document.querySelector("header .navigation");
+      let container = document.querySelector(".main-container");
+      container.classList.toggle("active-container");
+      nav.classList.toggle("active");
+    }
+  </script>
+</body>
+</html>
